@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+
+<div class="header">
+<a class="nav" style="height:30px; padding: 0px 30px 0px 30px; font-size: x-large; font-family: 'Oleo Script', cursive; float:left; margin-left:1%;" href="{% url 'index' %}">4 Site</a>
+<a class="nav" style="float: left; margin-left:5%;" href="{% url 'post' %}">Post</a>
+<a class="nav" style="float: left; margin-left:5%" href="{% url 'follow' %}">Follow</a>
+<a class="nav" style="float:right; margin-right:1%" href="{% url 'logout' %}">Log out</a>
+<div style=" padding: 5px 30px 5px 30px; float:right; margin-right:3%">Welcome, {{ user.username }}!</div>
+</div>

@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500italic' rel='stylesheet' type='text/css'>
+
+{% include "loggedout_header.html" %}
+
+<div class="content_stream">
+<div class="floater">
+<div class="logo">4 Site</div>
+<div class="motto">Why regret in hindsight what you can post with 4 Site?</div>
+<p></p>
+<a style="margin:150px;" href="{% url 'login' %}">Log in</a>
+</div>
+</div>

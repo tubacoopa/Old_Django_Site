@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+{% include "header.html" %}
+
+
+
+<div class="content_stream">
+<div class="floater">
+<form method="post" action="{% url 'followed' %}">
+{% csrf_token %}
+<table>
+<tr>
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <td style="font-size: small;"><label style=" for="id_following">Username:</label></td>
+    <td><input id="id_following" maxlength="254" name="following" type="text" /></td>
+
+</tr>
+</table>
+<input type="submit" value="Follow" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+</div>

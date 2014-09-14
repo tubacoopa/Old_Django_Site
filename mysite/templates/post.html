@@ -1,0 +1,28 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+{% include "header.html" %}
+
+<div class="content_stream">
+<div class="floater">
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form method="post" action="{% url 'posted' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<table>
+<tr>
+	<td style="font-size: small;">Image: <input type="file" name="photo"></td><br>
+</tr>
+<tr>
+    <td><textarea id="id_text" name="text" cols=40 rows=4></textarea></td>
+</tr>
+<tr>
+    <td style="font-size: small;">Expiration: <input id="id_expiration" name="expiration" type="datetime-local" value="2014-01-01T00:00:00" /></td>
+</tr>
+</table>
+
+<input type="submit" value="Submit" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+</div>

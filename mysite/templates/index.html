@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+{% include "header.html" %}
+
+<div class="content_stream">
+<ul>
+{% for post in posts %}
+{% for follow in follows %}
+	{% if post.username == follow.following %}
+	<div class="post">
+	<div class="post_submitter">Submitted by: <b>{{ post.username }}</b></div>
+	<div class="post_content">
+		{% if post.photo != 'empty' %}
+		<img class="post_photo" src="{{STATIC_URL}}{{post.photo.url}}" alt="cover image for {{ post.photo.name }}"/><br>
+		{% endif %}
+		<div class="post_text">{{ post.text }}</div>
+	</div>
+	<div class="post_expiration">Expires {{post.expiration}}</div>
+	</div>
+	{% endif %}
+{% endfor %}
+{% endfor %}
+</ul>
+</div>
